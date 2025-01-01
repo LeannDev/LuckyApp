@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}{% endblock %}
+{% block content %}
+<h1>Pay or Not? The Game That Turns Paying the Bill Into Fun!</h1>
+
+<p>
+    A game where everyone has fun, except the one who pays. 😏
+</p>
+
+<div class="call_to_action">
+    <a href="{% url 'play' %}" class="button" style="vertical-align:middle"><span>Start Now </span></a>
+
+    <p>
+        <b>And Let Luck Decide!</b>
+    </p>
+</div>
+
+<h2>Let Luck Decide Who Pays the Bill!</h2>
+<p>
+    No more debates, no awkward moments. Pay or Not transforms paying the bill into an exciting, laughter-filled game. Who will fortune favor today?
+</p>
+
+<h2>How It Works</h2>
+
+<ol>
+    <li><b>Create a Game:</b> Enter the payment link and add the number of players.</li>
+    <li><b>Scan QR Codes:</b> Each player scans their unique code to join the fun.</li>
+    <li><b>Let Fate Decide:</b> One player receives the payment link. The rest? They’re off the hook!</li>
+</ol>
+
+<p>
+    It’s that simple – and loads of fun!
+</p>
+
+<h2>Why Choose Pay or Not?</h2>
+
+<ul>
+    <li><b>Fun and Fair:</b> Turn a mundane task into an adventure!</li>
+    <li><b>Quick and Easy:</b> Start your game in seconds.</li>
+    <li><b>Play Anywhere:</b> Works seamlessly on all devices, anytime.</li>
+</ul>
+
+<h2>Ready to Play?</h2>
+<p>
+    Turn any bill into a thrilling game. Gather your friends, and let the excitement begin!
+</p>
+
+<div class="call_to_action">
+    <a href="{% url 'play' %}" class="button" style="vertical-align:middle"><span>Play Now </span></a>
+
+    <p>
+        <b>And Test Your Luck!</b>
+    </p>
+</div>
+
+{% endblock %}
+
+{% block js %}{% endblock %}

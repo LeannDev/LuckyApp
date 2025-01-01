@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}{% endblock %}
+{% block content %}
+<h1>Who will pay today?</h1>
+
+<p>
+    It could be any of the {{players}}... or maybe even YOU! 😱
+</p>
+
+<div class="call_to_action">
+    <div id="qrcode"></div>
+
+    <button class="button" id="try-luck">Try your luck</button>
+
+    <p id="message"></p>
+</div>
+
+<h2>Try Your Luck – It’s QR Time!</h2>
+
+<p>
+    Ready to see how fate treats you today? Here’s how it works:
+</p>
+
+<ol>
+    <li><b>Scan the QR Code:</b> Hand the device to someone brave enough to test their luck.</li>
+    <li><b>Test Your Luck:</b> The QR code reveals if fortune smiles on you or if you’re the one covering the bill today.</li>
+    <li><b>Generate a New QR:</b> Not your turn? Tap the button to generate a fresh QR code for the next lucky (or unlucky) participant!</li>
+</ol>
+
+<p>
+    💡 <b>Friendly Warning:</b> Every tap is a gamble, and the next person could be YOU. Are you ready to embrace the thrill of uncertainty?
+</p>
+{% endblock %}
+
+{% block js %}<script defer src="{% static 'js/playing.js' %}"></script>{% endblock %}

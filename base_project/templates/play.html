@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}{% endblock %}
+{% block content %}
+<h1>Play Now</h1>
+
+<form id="form-game" method="post">
+    {% csrf_token %}
+    <label for="payment-link">Payment Link:</label>
+    <br>
+    <input type="url" id="payment-link" name="paymentLink" placeholder="Enter the payment link (e.g., PayPal, Venmo, MercadoPago)" title="Por favor, ingresa una URL válida que comience con http:// o https://" required />
+    <br>
+    
+    <label for="participants">Number of Participants:</label>
+    <br>
+    <input type="number" id="participants" name="participants" placeholder="Enter the number of players" min="2" max="50" required />
+    <br>
+    
+    <button type="submit" class="button">Start Game</button>
+
+</form>
+
+<h2>How to play and try your luck?</h2>
+
+<p>
+    Getting started is as easy as 1, 2, 3! Follow these steps to dive into the fun:
+</p>
+
+<ol>
+    <li><b>Insert the Payment Link:</b> Paste the link to collect contributions from everyone. Simple and hassle-free!</li>
+    <li><b>Enter the Number of Participants:</b> Whether you're playing with a few friends or a big group, just add the number.</li>
+    <li><b>Hit "Start Game":</b> Let the magic begin as luck takes over and determines the winner!</li>
+</ol>
+
+<p>
+    Gather your crew, set the stakes, and let fortune decide who pays it all today. Ready to play?
+</p>
+
+{% endblock %}
+
+{% block js %}<script defer src="{% static 'js/form.js' %}"></script>{% endblock %}

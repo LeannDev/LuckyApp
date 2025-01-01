@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+{% block content %}
+<h1>About Us</h1>
+
+<p>
+    Welcome to {{site}} – where paying the bill becomes the most exciting part of the day! 🎉
+</p>
+
+<p>
+    Our story began with a simple idea: why should the routine task of deciding who pays be boring? What if it could be 
+    fun, suspenseful, and filled with laughter instead? With that vision in mind, {{site}} was dreamed up and brought 
+    to life by a single, passionate web developer who wanted to make payment moments unforgettable.
+</p>
+
+<p>
+    {{site}} is designed for friends, families, and groups who love a little thrill. It’s not just about settling the 
+    bill – it’s about creating memories, sharing laughs, and embracing the unexpected. Whether you’re the lucky one or 
+    the chosen one, every round brings a new story to tell.
+</p>
+
+<p>
+    Our mission is simple: make life a little more playful. In a world full of deadlines and to-do lists, we believe 
+    there’s always room for a spark of joy – even when it’s time to pay.
+</p>
+
+<p>
+    So, whether you’re trying your luck for the first time or a seasoned player, we’re here to make every tap, scan, and 
+    result part of the fun. Ready to turn payments into a game? Let’s play!
+</p>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endblock %}
+{% block canonical %}{% url 'home' %}{% endblock %}
+{% block social_url %}{% url 'home' %}{% endblock %}
+
+{% block css %}{% endblock %}
+{% block content %}
+{% if pay %}
+<h1>Ooh Noo! You’re Paying This Time</h1>
+
+<p>
+    Luck wasn’t on your side this time. Looks like you’re the chosen one to cover the bill today. Better luck next time! 😬
+</p>
+
+<label for="payment-link">Payment Link:</label>
+<br>
+<input type="text" id="payment-link" name="paymentLink" value="{{url}}" />
+<br>
+<button id="copy-link" type="submit" class="button">Copy Link</button>
+<button id="pay" type="submit" class="button">Pay</button>
+
+<h2>Tag, You’re It!</h2>
+
+<p>
+    Fate has spoken, and it’s your turn to pay. Time to settle up and let someone else try their luck! 💸
+</p>
+
+{% else %}
+<h1></h1>
+
+<p>
+    You don’t pay this time. Sit back, relax, and enjoy your good fortune... for now!
+</p>
+
+<p>
+    Fate has spoken, and you’re off the hook! Enjoy your lucky break and let someone else take their turn. 😎
+</p>
+
+{% endif %}
+{% endblock %}
+
+{% block js %}<script defer src="{% static 'js/pay.js' %}"></script>{% endblock %}
