@@ -2,6 +2,8 @@
 const qrCodeContainer = document.getElementById("qrcode");
 const tryLuckButton = document.getElementById("try-luck");
 const messageElement = document.getElementById("message");
+// Capture current URL
+const currentUrl = window.location.protocol + window.location.host;
 
 // Function to extract parameters from the URL
 function getQueryParams() {
@@ -53,24 +55,24 @@ const targetAttempt = getRandomPlayer(players);
 console.log(`Attempt number: ${attemptNumber}`);
 if (attemptNumber === targetAttempt) {
     console.log("You pay");
-    generateQRCode(`http://192.168.2.214:8000/lucky?url=${encodeBase64(paymentLink)}&pay=true`);
+    generateQRCode(`${currentUrl}/lucky?url=${encodeBase64(paymentLink)}&pay=true`);
     tryLuckButton.addEventListener("click", () => {
         window.location.href = `/lucky?url=${encodeBase64(paymentLink)}&pay=true`
     })
 } else {
     attemptNumber++;
-    generateQRCode(`http://192.168.2.214:8000/lucky?url=${encodeBase64(generateRandomNumber())}&pay=false`);
+    generateQRCode(`${currentUrl}/lucky?url=${encodeBase64(generateRandomNumber())}&pay=false`);
     tryLuckButton.addEventListener("click", () => {
         console.log(`Attempt number: ${attemptNumber}`);
         if (attemptNumber === targetAttempt) {
             console.log("You pay");
-            generateQRCode(`http://192.168.2.214:8000/lucky?url=${encodeBase64(paymentLink)}&pay=true`);
+            generateQRCode(`${currentUrl}/lucky?url=${encodeBase64(paymentLink)}&pay=true`);
             tryLuckButton.addEventListener("click", () => {
                 window.location.href = `/lucky?url=${encodeBase64(paymentLink)}&pay=true`
             })
         } else {
             attemptNumber++;
-            generateQRCode(`http://192.168.2.214:8000/lucky?url=${encodeBase64(generateRandomNumber())}&pay=false`);
+            generateQRCode(`${currentUrl}/lucky?url=${encodeBase64(generateRandomNumber())}&pay=false`);
         }
     });
     

@@ -127,10 +127,10 @@ class LuckyView(View):
         encoded_url = request.GET.get('url', None)
         pay = request.GET.get('pay', None)
 
-        if pay:
+        if pay == 'true':
             try:
                 # Decodificar los valores desde Base64
-                decoded_url = base64.b64decode(encoded_url).decode('utf-8')
+                decoded_url = base64.b64decode(encoded_url).decode('utf-8').strip('"')
             except:
                 return JsonResponse({"error": "Invalid URL"}, status=400)
         else:
@@ -147,7 +147,7 @@ class LuckyView(View):
             'social_description': meta_description,
             'image': image,
             'pay': pay,
-            'url': decoded_url.strip('"')
+            'url': decoded_url
         }
 
         return render(request, 'lucky.html', context)
@@ -248,7 +248,7 @@ class SitemapView(Sitemap):
 
     def items(self):
         # Lista de nombres de vistas
-        return ['home', 'about-us', 'cookies', 'legal', 'privacy']
+        return ['home', 'about-us', 'play', 'lucky', 'capture_parameters', 'cookies', 'legal', 'privacy']
 
     def location(self, item):
         return reverse(item)

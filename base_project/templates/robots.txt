@@ -27,4 +27,4 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://payornot.net/sitemap.xml
+Sitemap: https://payornot.site/sitemap.xml
