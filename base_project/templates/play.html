@@ -9,28 +9,31 @@
 {% block content %}
 <h1>Play Now</h1>
 
+<div id="qr-scanner">
+    <video id="camera" width="260" height="160" autoplay></video>
+    <canvas id="canvas" style="display: none;"></canvas>
+</div>
+<br>
 <form id="form-game" method="post">
     {% csrf_token %}
     <label for="payment-link">Payment Link:</label>
     <br>
-    <input type="url" id="payment-link" name="paymentLink" placeholder="Enter the payment link (e.g., PayPal, Venmo, MercadoPago)" title="Por favor, ingresa una URL válida que comience con http:// o https://" required />
+    <input type="text" id="payment-link" name="paymentLink" placeholder="Enter the payment link or scan QR" title="Por favor, ingresa una URL válida que comience con http:// o https://" required />
     <br>
     
     <label for="participants">Number of Participants:</label>
     <br>
-    <input type="number" id="participants" name="participants" placeholder="Enter the number of players" min="2" max="50" required />
+    <input type="number" id="participants" name="participants" placeholder="Enter the number of players" min="2" max="50" value="2" required />
     <br>
-    
-    <button type="submit" class="button">Start Game</button>
 
+    <div class="call_to_action">
+        <span id="status">Estado: Esperando...</span>
+        <br>
+        <button class="button" id="startCamera">Scan</button>
+        <button class="button" id="stopCamera" style="display: none;">Stop</button>
+        <button type="submit" class="button">Start Game</button>
+    </div>
 </form>
-
-<h1>Escáner de Código QR</h1>
-<button id="startCamera">Iniciar Cámara</button>
-<video id="camera" width="300" height="200" autoplay style="display: none;"></video>
-<canvas id="canvas" style="display: none;"></canvas>
-<p id="status">Estado: Esperando...</p>
-<p id="result">Código QR: <span id="output">N/A</span></p>
 
 <h2>How to play and try your luck?</h2>
 

@@ -210,7 +210,7 @@ select {
 }
 
 label {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .call_to_action {
@@ -285,7 +285,19 @@ input {
     height: 260px;
     border: 3px solid var(--secondary-color);
     text-align: center;
+    margin: 0 auto 1rem auto;
+}
+
+#qr-scanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 265px;
+    height: 165px;
+    border: 3px solid var(--secondary-color);
+    text-align: center;
     margin: 0 auto;
+    background-color: black;
 }
 
 /* FOOTER */
@@ -482,6 +494,10 @@ footer .pie .footer-list ul a {
     /* Mostrar submenú al hacer hover en escritorio */
     .dropdown:hover .submenu {
         display: block;
+    }
+
+    label {
+        font-size: 1.5rem;
     }
 
     /* AVISO COOKIES */

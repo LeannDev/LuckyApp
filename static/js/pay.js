@@ -2,6 +2,16 @@
 const paymentLinkInput = document.getElementById("payment-link");
 const copyButton = document.getElementById("copy-link");
 const payButton = document.getElementById("pay");
+const qrCodeContainer = document.getElementById("qrcode");
+
+// Function to generate a QR code for a given URL
+function generateQRCode(url) {
+    if (!url) {
+        console.error("Invalid URL provided for QR code generation.");
+        return;
+    }
+    qrCodeContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${url}" alt="QR Code" />`;
+}
 
 // Function to copy the link to the clipboard
 copyButton.addEventListener("click", () => {
@@ -37,3 +47,5 @@ payButton.addEventListener("click", () => {
         console.log("Failed to open the link. Please check your browser settings.");
     }
 });
+
+generateQRCode(paymentLinkInput.value);

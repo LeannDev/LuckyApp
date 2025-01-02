@@ -3,7 +3,7 @@ const qrCodeContainer = document.getElementById("qrcode");
 const tryLuckButton = document.getElementById("try-luck");
 const messageElement = document.getElementById("message");
 // Capture current URL
-const currentUrl = window.location.protocol + window.location.host;
+const currentUrl = window.location.protocol + '//' + window.location.host;
 
 // Function to extract parameters from the URL
 function getQueryParams() {

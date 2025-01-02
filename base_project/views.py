@@ -1,5 +1,4 @@
 import base64
-from urllib.parse import urlparse
 
 from django.views import View
 from django.shortcuts import render
@@ -57,11 +56,6 @@ class PlayView(View):
         return render(request, 'play.html', context)
     
 class PlayingView(View):
-    
-    def is_valid_url(self, url):
-        """Validate if the provided string is a valid URL."""
-        parsed = urlparse(url)
-        return bool(parsed.netloc) and bool(parsed.scheme)
 
     def is_valid_participants(self, participants):
         """Validate if the number of participants is an integer greater than 1."""
@@ -94,9 +88,6 @@ class PlayingView(View):
         # Validar los datos decodificados
         if not self.is_valid_participants(decoded_players):
             return JsonResponse({"error": "Invalid number of participants"}, status=400)
-
-        if not self.is_valid_url(decoded_url):
-            return JsonResponse({"error": "Invalid URL"}, status=400)
 
         # Preparar el contexto
         context = {

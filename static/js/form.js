@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validar los campos del formulario
     function isValidURL(url) {
-        const urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
+        const urlPattern = new RegExp(//'^(https?:\\/\\/)?' + // validate protocol
             '((([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,})|' + // domain name
             '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
             '(\\:\\d+)?(\\/[-a-zA-Z0-9@:%._\\+~#=]*)*' + // port and path
