@@ -25,6 +25,13 @@
 
 </form>
 
+<h1>Escáner de Código QR</h1>
+<button id="startCamera">Iniciar Cámara</button>
+<video id="camera" width="300" height="200" autoplay style="display: none;"></video>
+<canvas id="canvas" style="display: none;"></canvas>
+<p id="status">Estado: Esperando...</p>
+<p id="result">Código QR: <span id="output">N/A</span></p>
+
 <h2>How to play and try your luck?</h2>
 
 <p>
@@ -43,4 +50,8 @@
 
 {% endblock %}
 
-{% block js %}<script defer src="{% static 'js/form.js' %}"></script>{% endblock %}
+{% block js %}
+<script defer src="{% static 'js/form.js' %}"></script>
+<script defer src="{% static 'js/qrScan.js' %}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+{% endblock %}
